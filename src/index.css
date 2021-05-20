@@ -1,0 +1,93 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+.blog_logo{
+    font-family: 'Fontdiner Swanky', cursive !important;
+    font-size: 150%;
+    letter-spacing: 6px;
+}
+
+.blog_logo_small{
+    font-family: 'Fontdiner Swanky', cursive !important;
+    letter-spacing: 6px;
+}
+
+.main_image{
+    margin-top: 3em;
+    margin-bottom: 3em;
+    max-width: 854px;
+}
+
+.main_image div{
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#intro_message{
+    font-family: 'Goblin One', cursive !important;
+    font-size: 54px;
+    font-weight: 700;
+    line-height: 54px;
+}
+
+#explain_intro{
+    max-width: 592px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 2px solid black;
+}
+
+#explain_intro p{
+    margin: 0;
+}
+
+a.current_page{
+    border-bottom: 2px solid black;
+}
+
+.nav-link:hover{
+    border-bottom: 2px solid black;
+}
+
+.footer-text{
+    font-size: 80%;
+    text-align: center;
+}
+
+.no_margin{
+    margin: 0px;
+}
+
+.row{
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.articles-list{
+    font-size: 85%;
+}
+
+.small-heading, .small-heading-light, .small-par-text{
+    font-size: 90%;
+}
+
+.small-heading{
+    font-weight: 600;
+}
+
+.trend-heading{
+    border-bottom: 2px solid black;
+}
+
+.blog_text{
+    font-weight: 300;
+    font-size: 120%;
+    /* text-align: justify;
+    text-justify: inter-word; */
+}
