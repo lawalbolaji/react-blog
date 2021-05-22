@@ -1,7 +1,9 @@
-import React from 'react';
-import './Feed.css';
+import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
+import Trending from '../trending/trending';
+import './feed.css';
 
-const blogs = [
+const blogFeed = [
     {
         'id': 1,
         'title': 'New Blog',
@@ -37,65 +39,19 @@ const blogs = [
         'author': 'Author',
         'date_published': 'May 14, 2021',
     },
-]
+];
+
+const categories = [
+    // populate with different categories available via the api
+];
 
 function Feed(){
+
+    const [blogs, setBlogs] = useState(blogFeed);
+
     return (
         <div class="articles-list container">
-            <div class="row pb-0 pt-0">
-                <div class="col">
-                    <div class="row text-align-center mb-0">
-                        <div class="col-1"><img src="https://via.placeholder.com/30x30" alt="" /></div>
-                        <div class="col-auto">
-                            <h3 class="small-heading text-uppercase trend-heading mb-0 pb-0 mt-1">Trending on &nbsp; &nbsp;<span class="blog_logo_small">Bolaji Lass</span></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col"></div>
-                <div class="col"></div>
-            </div>
-            <div class="row pb-0 pt-0 mb-4">
-                <div class="col-md-4">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-                        <div class="col p-3 d-flex flex-column position-static pt-0 pb-0">
-                            <strong class="d-inline-block mb-2 text-primary">Category</strong>
-                            <h3 class="mb-0 small-heading">Post Title</h3>
-                            <div class="mb-1 text-muted small-heading-light">Author: Admin | Nov 12</div>
-                            <p class="mb-auto small-par-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <a href="#" class="stretched-link">Continue reading</a></p>
-                        </div>
-                        <div class="col-auto d-none d-lg-block container">
-                            <div class="row align-center"><img src="https://via.placeholder.com/100x100" alt="" /></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-                        <div class="col p-3 d-flex flex-column position-static pt-0 pb-0">
-                            <strong class="d-inline-block mb-2 text-success">Category</strong>
-                            <h3 class="mb-0 small-heading">Post title</h3>
-                            <div class="mb-1 text-muted small-heading-light">Author: Admin | Nov 11</div>
-                            <p class="mb-auto small-par-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <a href="#" class="stretched-link">Continue reading</a></p>
-                        </div>
-                        <div class="col-auto d-none d-lg-block container">
-                            <div class="row align-center"><img src="https://via.placeholder.com/100x100" alt="" /></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
-                        <div class="col p-3 d-flex flex-column position-static pt-0 pb-0">
-                            <strong class="d-inline-block mb-2 text-danger">Category</strong>
-                            <h3 class="mb-0 small-heading">Post title</h3>
-                            <div class="mb-1 text-muted small-heading-light">Author: Admin | Nov 11</div>
-                            <p class="mb-auto small-par-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <a href="#" class="stretched-link">Continue reading</a></p>
-                        </div>
-                        <div class="col-auto d-none d-lg-block container">
-                            <div class="row align-center"><img src="https://via.placeholder.com/100x100" alt="" /></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <Trending />
             <div class="row g-5">
                 <div class="col-md-8">
                     <h4 class="pb-2 mb-2 border-bottom">From the Engine Room</h4>
@@ -109,7 +65,7 @@ function Feed(){
 
                             <p>
                                 {blog.body}
-                                <a href="#">continue reading</a>
+                                <Link to={"/detail/".concat(blog.id)}>continue reading</Link>
                             </p>
                         </article>
                         )

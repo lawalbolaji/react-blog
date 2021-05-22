@@ -1,6 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-function Navigation(){
+function Navigation(props){
     return (
         <nav class="navbar navbar-expand-lg navbar-light bg-light py-2 fixed-top">
             <div class="container-fluid">
@@ -15,16 +16,30 @@ function Navigation(){
                                 <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Account
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><hr class="dropdown-divider"/></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                {props?.userLoggedIn ? 
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                                        <li><a class="dropdown-item" href="#">View Dashboard</a></li>
+                                        <li><hr class="dropdown-divider"/></li>
+                                        <li><a class="dropdown-item" href="#">new blog</a></li>
+                                    </ul>
+                                    :
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><Link className="dropdown-item" to="/login">login</Link></li>
+                                        <li><Link className="dropdown-item" to="/register">register</Link></li>
+                                    </ul>
+                                }
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active current_page" aria-current="page" href="#">Blogs</a>
+                                <Link className="nav-link active {}" to="/">Blogs</Link>
                             </li>
+                            {props?.userLoggedIn? 
+                                <li class="nav-item">
+                                    <Link className="nav-link active {}" to="/">+ New Blog</Link>
+                                </li>
+                            :
+                                ""
+                            }
                             <li class="nav-item">
                                 <a class="nav-link active" href="#">About</a>
                             </li>

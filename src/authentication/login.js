@@ -1,6 +1,6 @@
 import React from 'react';
 
-function login(){
+function Login(){
     return (
         <div class="container mt-5 pt-5">
             <main>
@@ -23,7 +23,7 @@ function login(){
                             </div>
 
                             <div class="col-12">
-                                <label for="password" class="form-label">Paasword</label>
+                                <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" placeholder="password" />
                                 <div class="invalid-feedback">
                                     Please enter a valid password.
@@ -51,4 +51,4 @@ function login(){
     );
 }
 
-export default login;
+export default Login;
