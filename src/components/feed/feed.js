@@ -1,45 +1,45 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import Trending from '../trending/trending';
-import './feed.css';
+import backend from '../../utils/backend';
 
-const blogFeed = [
-    {
-        'id': 1,
-        'title': 'New Blog',
-        'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ',
-        'author': 'Author',
-        'date_published': 'May 14, 2021',
-    },
-    {
-        'id': 2,
-        'title': 'New Blog',
-        'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ',
-        'author': 'Author',
-        'date_published': 'May 14, 2021',
-    },
-    {
-        'id': 3,
-        'title': 'New Blog',
-        'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ',
-        'author': 'Author',
-        'date_published': 'May 14, 2021',
-    },
-    {
-        'id': 4,
-        'title': 'New Blog',
-        'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ',
-        'author': 'Author',
-        'date_published': 'May 14, 2021',
-    },
-    {
-        'id': 5,
-        'title': 'New Blog',
-        'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ',
-        'author': 'Author',
-        'date_published': 'May 14, 2021',
-    },
-];
+// const blogFeed = [
+//     {
+//         'id': 1,
+//         'title': 'New Blog',
+//         'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ',
+//         'author': 'Author',
+//         'date_published': 'May 14, 2021',
+//     },
+//     {
+//         'id': 2,
+//         'title': 'New Blog',
+//         'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ',
+//         'author': 'Author',
+//         'date_published': 'May 14, 2021',
+//     },
+//     {
+//         'id': 3,
+//         'title': 'New Blog',
+//         'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ',
+//         'author': 'Author',
+//         'date_published': 'May 14, 2021',
+//     },
+//     {
+//         'id': 4,
+//         'title': 'New Blog',
+//         'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ',
+//         'author': 'Author',
+//         'date_published': 'May 14, 2021',
+//     },
+//     {
+//         'id': 5,
+//         'title': 'New Blog',
+//         'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ',
+//         'author': 'Author',
+//         'date_published': 'May 14, 2021',
+//     },
+// ];
 
 const categories = [
     // populate with different categories available via the api
@@ -47,7 +47,19 @@ const categories = [
 
 function Feed(){
 
-    const [blogs, setBlogs] = useState(blogFeed);
+    const [blogs, setBlogs] = useState([]);
+
+    useEffect(() => {
+        let mounted = true;
+        backend.getBlogs()
+          .then(items => {
+            if(mounted) {
+                setBlogs(items);
+                console.log(items)
+            }
+          })
+        return () => mounted = false;
+      }, []);
 
     return (
         <div class="articles-list container">
@@ -61,7 +73,7 @@ function Feed(){
                         return (
                         <article className="blog-post">
                             <h2 className="blog-post-title">{blog.title}</h2>
-                            <p className="blog-post-meta">{blog.date_published} by <a href="#">{blog.author}</a></p>
+                            <p className="blog-post-meta">May 23 by <a href="#">{blog.author}</a></p>
 
                             <p>
                                 {blog.body}
