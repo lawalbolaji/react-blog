@@ -49,18 +49,18 @@ export default function Detail(){
     });
 
     return (
-        <div class="container align-center main_image pt-5 mt-5">
-            <div class="description blog_title border-bottom pb-2">
+        <div className="container align-center main_image pt-5 mt-5">
+            <div className="description blog_title border-bottom pb-2">
                 <p id="intro_message">Excepteur sint occaecat cupidatat non proident</p>
             </div>
 
-            <article class="blog_text mt-4">
+            <article className="blog_text mt-4">
                 <p>
                     {blog.body}
                 </p>
             </article>
 
-            <p class="">
+            <p className="">
                 <a href="#">Comments</a>
             </p>
         </div>

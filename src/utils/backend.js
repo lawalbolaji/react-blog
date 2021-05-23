@@ -1,6 +1,6 @@
 const backend = {}
 
-backend.endpoints = {
+backend.urls = {
     // create_blog: "",
     // delete_blog: "",
     blog_list: "http://127.0.0.1:8000/api/blogs/",
@@ -17,7 +17,7 @@ backend.createBlog = () => {
 
 
 backend.getBlogs = () => {
-    return fetch(`${backend.endpoints.blog_list}`)
+    return fetch(`${backend.urls.blog_list}`)
     .then((data) => data.json())
 }
 
@@ -25,7 +25,6 @@ backend.getBlogDetail = () => {
 
 
 }
-
 
 backend.comment = () => {
 

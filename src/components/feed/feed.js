@@ -62,11 +62,11 @@ function Feed(){
       }, []);
 
     return (
-        <div class="articles-list container">
+        <div className="articles-list container">
             <Trending />
-            <div class="row g-5">
-                <div class="col-md-8">
-                    <h4 class="pb-2 mb-2 border-bottom">From the Engine Room</h4>
+            <div className="row g-5">
+                <div className="col-md-8">
+                    <h4 className="pb-2 mb-2 border-bottom">From the Engine Room</h4>
                     
                     {/* render all blogs */}
                     {blogs.map(blog => {
@@ -84,11 +84,11 @@ function Feed(){
                     })}
 
                 </div>
-                <div class="col-md-4">
-                    <div class="position-sticky about_tab">
-                        <div class="p-4 mb-3 bg-light rounded">
+                <div className="col-md-4">
+                    <div className="position-sticky about_tab">
+                        <div className="p-4 mb-3 bg-light rounded">
                             <h4>About</h4>
-                            <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+                            <p className="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
                         </div>
                     </div>
                 </div>
